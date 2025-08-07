@@ -11,7 +11,6 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -26,6 +25,10 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
+  background-image: url("/workspaces/weather-forecast/frontend/template/src/Images/Background1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 /* Center and constrain the root element */
