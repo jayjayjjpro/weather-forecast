@@ -3,51 +3,74 @@ import SearchBar from './components/SearchBar.jsx';
 import CityCard from './components/CityCard.jsx';
 import WeatherInfoCard from './components/WeatherInfoCard.jsx';
 import WeatherMap from './components/WeatherMap.jsx';
+import TopCityClicks from './components/TopCityClicks.jsx';
 import popularCities from './data/popularCities.js';
 
 const App = () => {
+  const [cities, setCities] = useState(popularCities);
   const [selectedCity, setSelectedCity] = useState(popularCities[0]);
+  const [refreshClicks, setRefreshClicks] = useState(0);
 
-  // New function to handle city card clicks
   const handleCityClick = async (city) => {
     try {
-      // Call backend to increment click count
       const res = await fetch(
         `https://supreme-garbanzo-pwwgvwr957f7rp7-3000.app.github.dev/weather/click?city=${encodeURIComponent(city.name)}`
       );
 
-      if (!res.ok) {
+      let updated = {};
+      if (res.ok) {
+        updated = await res.json();
+      } else {
         console.error('Failed to update click count');
       }
 
-      // Update the selected city state anyway
-      setSelectedCity(city);
+      const newCities = cities.map((c) =>
+        c.name === updated.city
+          ? { ...c, count: updated.clicks ?? c.count ?? 0 }
+          : c
+      );
+
+      setCities(newCities);
+
+      const updatedCity = newCities.find((c) => c.name === city.name);
+      setSelectedCity(updatedCity);
+
+      setRefreshClicks((prev) => prev + 1);
     } catch (error) {
       console.error('Error updating click count:', error);
-      // Still update selected city so UI remains responsive
       setSelectedCity(city);
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 p-4">
-      {/* <SearchBar onSearch={setSelectedCity} /> */}
-
+      {/* City buttons */}
       <div className="my-4 overflow-x-auto whitespace-nowrap">
-        {popularCities.map((city) => (
+        {cities.map((city) => (
           <CityCard
             key={city.id}
             city={city}
-            lon={city.lon}
-            lat={city.lat}
-            onClick={() => handleCityClick(city)} // Use new handler here
+            onClick={() => handleCityClick(city)}
           />
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
-        <WeatherInfoCard city={selectedCity} />
-        <WeatherMap city={selectedCity} />
+      {/* Main content: 3-column grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
+        {/* Left: Top City Clicks */}
+        <div className="order-1 lg:order-none">
+          <TopCityClicks refreshTrigger={refreshClicks} />
+        </div>
+
+        {/* Middle: Weather Info Card */}
+        <div className="order-2 lg:order-none">
+          <WeatherInfoCard city={selectedCity} />
+        </div>
+
+        {/* Right: Weather Map */}
+        <div className="order-3 lg:order-none">
+          <WeatherMap city={selectedCity} />
+        </div>
       </div>
     </div>
   );

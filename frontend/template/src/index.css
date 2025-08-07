@@ -2,88 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Root CSS variables and font setup */
+/* Root setup */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #111827;
+  background-color: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Make body fill viewport and center content */
+/* Background and layout */
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
   background-image: url("/workspaces/weather-forecast/frontend/template/src/Images/Background1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-color: #f3f4f6; /* fallback */
 }
 
-/* Center and constrain the root element */
 #root {
-  max-width: 1280px;
   width: 100%;
+  max-width: 1280px;
   padding: 2rem;
   text-align: center;
 }
 
-/* Styling for headings, buttons, etc. */
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Headings */
+h1, h2, h3 {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
 }
 
+h1 {
+  font-size: 2.5rem;
+}
+
+/* Links */
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  color: #2563eb;
+  text-decoration: underline;
 }
 
+a:hover {
+  color: #1d4ed8;
+}
+
+/* Buttons */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  border: none;
   padding: 0.6em 1.2em;
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #3b82f6;
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: background-color 0.25s, transform 0.15s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Optional animated logo styling */
+button:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Optional logo styling */
 .logo {
   height: 6em;
   padding: 1.5em;
   transition: filter 300ms;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 1em #60a5fa);
 }
 
 @keyframes logo-spin {
@@ -96,21 +105,31 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
+  .logo.spin {
     animation: logo-spin infinite 20s linear;
   }
 }
 
-/* Light mode overrides */
-@media (prefers-color-scheme: light) {
+/* Light/dark mode support */
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #000000;
-    background-color: #000000;
+    color: #e5e7eb;
+    background-color: #111827;
   }
-  a:hover {
-    color: #747bff;
+
+  body {
+    background-color: #111827;
   }
+
+  a {
+    color: #93c5fd;
+  }
+
   button {
-    background-color: #fda1b2;
+    background-color: #1e40af;
+  }
+
+  button:hover {
+    background-color: #1e3a8a;
   }
 }
