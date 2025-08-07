@@ -1,8 +1,13 @@
-// server.js or any route
 import express from 'express'
+import cors from 'cors'            // <-- Import cors
 import supabase from './db.js'
 
 const app = express()
+
+// Enable CORS for your frontend origin
+app.use(cors({
+  origin: 'https://supreme-garbanzo-pwwgvwr957f7rp7-5173.app.github.dev', // frontend URL
+}))
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
