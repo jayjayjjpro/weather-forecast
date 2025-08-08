@@ -1,55 +1,65 @@
-Weather Tracking App
-Overview
-The Weather Tracking App allows users to track the current weather conditions of various cities worldwide. The app provides an intuitive user interface that fetches live weather data, including temperature, humidity, and weather conditions, using a third-party weather API. The app displays weather information for cities and shows results on an interactive map, based on predefined or popular cities.
+# 🌦️ Weather Tracking App
 
-The app is built using Node.js for the backend, React.js for the frontend, and PostgreSQL for storing the most popular cities being tracked. The app is hosted in the cloud and supports automated deployments via GitHub Actions.
+## Overview
 
-Key Features
+The **Weather Tracking App** allows users to track current weather conditions of various cities worldwide. It provides an intuitive user interface that fetches live weather data — such as temperature, humidity, and weather conditions — using a third-party weather API. Weather information is displayed on an interactive global map, focusing on predefined or popular cities.
 
-Live Weather Information: Get real-time weather updates for cities around the globe.
+The app is built using **Node.js** for the backend, **React.js** with **Vite** for the frontend, and **PostgreSQL** (via Supabase) for storing data about the most popular tracked cities. The app is cloud-hosted and supports automated deployments via **GitHub Actions**.
 
+---
 
-Popular Cities Tracking: Track the most popular cities being searched by users.
+## 🔑 Key Features
 
+- **Live Weather Information**  
+  Get real-time weather updates for cities around the globe.
 
-Global Map Display: Visualize global weather data with an interactive map.
+- **Popular Cities Tracking**  
+  Track the most popular cities being searched by users.
 
-├── backend                # Express.js API + Supabase DB
-│   ├── app.js
-│   ├── db.js
-│   ├── package.json
-│   └── package-lock.json
-│
-├── frontend               # React + Vite client
-│   ├── template/
-│   │   ├── public/
-│   │   └── src/
-│   ├── index.html
-│   ├── vite.config.js
+- **Global Map Display**  
+  Visualize global weather data with an interactive map.
 
-│   ├── package.json
-│   ├── .gitignore
-│   └── README.md
-│
+---
+
+## 📁 Project Structure
+backend/ # Express.js API + Supabase DB
+├── app.js
+├── db.js
+├── package.json
+└── package-lock.json
+
+frontend/ # React + Vite client
+├── template/
+│ ├── public/
+│ └── src/
+├── index.html
+├── vite.config.js
+├── package.json
 ├── .gitignore
-└── README.md              # You are here
-Contributing
-We welcome contributions to the Weather Tracking App! Please feel free to fork the repository and submit a pull request.
+└── README.md
 
-How to Contribute:
-
-Fork the repository.
+.gitignore
+README.md #
 
 
-Create a new branch for your feature or bugfix.
+---
 
+## 🤝 Contributing
 
-Make your changes.
+We welcome contributions to the **Weather Tracking App**! Feel free to fork the repository and submit a pull request.
 
+### How to Contribute
 
-Open a pull request with a description of your changes.
-Porject Created by
-Da jie
-Kevin
-Cuthbert
-Pranav
+1. **Fork** the repository  
+2. **Create a new branch** for your feature or bugfix  
+3. **Make your changes**  
+4. **Open a pull request** with a description of your changes  
+
+---
+
+## 👨‍💻 Project Created By
+
+- Kevin
+-  Da Jie
+- Cuthbert
+- Pranav
