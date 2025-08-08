@@ -13,3 +13,43 @@ Popular Cities Tracking: Track the most popular cities being searched by users.
 
 
 Global Map Display: Visualize global weather data with an interactive map.
+
+├── backend                # Express.js API + Supabase DB
+│   ├── app.js
+│   ├── db.js
+│   ├── package.json
+│   └── package-lock.json
+│
+├── frontend               # React + Vite client
+│   ├── template/
+│   │   ├── public/
+│   │   └── src/
+│   ├── index.html
+│   ├── vite.config.js
+
+│   ├── package.json
+│   ├── .gitignore
+│   └── README.md
+│
+├── .gitignore
+└── README.md              # You are here
+Contributing
+We welcome contributions to the Weather Tracking App! Please feel free to fork the repository and submit a pull request.
+
+How to Contribute:
+
+Fork the repository.
+
+
+Create a new branch for your feature or bugfix.
+
+
+Make your changes.
+
+
+Open a pull request with a description of your changes.
+Porject Created by
+Da jie
+Kevin
+Cuthbert
+Pranav
