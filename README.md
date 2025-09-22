@@ -22,6 +22,7 @@ The app is built using **Node.js** for the backend, **React.js** with **Vite** f
 ---
 
 ## 📁 Project Structure
+```
 backend/ # Express.js API + Supabase DB
 ├── app.js
 ├── db.js
@@ -39,8 +40,8 @@ frontend/ # React + Vite client
 └── README.md
 
 .gitignore
-README.md #
-
+README.md
+```
 
 ---
 
