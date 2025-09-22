@@ -5,18 +5,34 @@ services:
       - ./backend/.env
     environment:
       - PORT=3000
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/mydb
     ports:
       - "3000:3000"
+    depends_on:
+      - db
     restart: unless-stopped
 
   frontend:
     build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:3000
     depends_on:
       - backend
-    ports:
-      - "8080:80"
     restart: unless-stopped
 
-networks:
-  default:
-    name: app-net
+  db:
+    image: postgres:16-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
