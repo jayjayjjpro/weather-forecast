@@ -11,7 +11,7 @@ const TopCityClicks = ({ refreshTrigger = 0 }) => {
         const results = await Promise.all(
           popularCities.map(async (city) => {
             const res = await fetch(
-              `backend-six-bice-19.vercel.app/weather?city=${encodeURIComponent(city.name)}`
+              `https://backend-six-bice-19.vercel.app/weather?city=${encodeURIComponent(city.name)}`
             );
             const data = await res.json();
             return { name: city.name, clicks: data.clicks ?? 0 };

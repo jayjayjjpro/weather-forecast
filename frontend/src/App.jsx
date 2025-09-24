@@ -14,7 +14,7 @@ const App = () => {
   const handleCityClick = async (city) => {
     try {
       const res = await fetch(
-        `backend-six-bice-19.vercel.app/weather/click?city=${encodeURIComponent(city.name)}`
+        `https://backend-six-bice-19.vercel.app/weather/click?city=${encodeURIComponent(city.name)}`
       );
 
       let updated = {};

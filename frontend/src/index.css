@@ -133,3 +133,8 @@ button:focus-visible {
     background-color: #1e3a8a;
   }
 }
+
+table {
+  margin: 0 auto;  /* centers the table */
+  text-align: center; /* centers the text inside */
+}
