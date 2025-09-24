@@ -2,9 +2,9 @@ name: Backend Tests
 
 on:
   push:
-    branches: [ "cb" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "cb" ]
+    branches: [ "main" ]
 
 jobs:
   test-backend:
