@@ -6,7 +6,7 @@ const app = express()
 
 // Enable CORS for your frontend origin
 app.use(cors({
-  origin: 'https://supreme-garbanzo-pwwgvwr957f7rp7-5173.app.github.dev', // frontend URL
+  origin: 'frontend-one-tau-44.vercel.app', // frontend URL
 }))
 
 app.get('/', (req, res) => {

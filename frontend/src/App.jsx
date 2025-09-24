@@ -14,7 +14,7 @@ const App = () => {
   const handleCityClick = async (city) => {
     try {
       const res = await fetch(
-        `https://supreme-garbanzo-pwwgvwr957f7rp7-3000.app.github.dev/weather/click?city=${encodeURIComponent(city.name)}`
+        `backend-six-bice-19.vercel.app/weather/click?city=${encodeURIComponent(city.name)}`
       );
 
       let updated = {};
