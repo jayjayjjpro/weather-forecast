@@ -1,25 +1,31 @@
 services:
   backend:
-    build: ./backend
-    env_file:
-      - ./backend/.env
-    environment:
-      - PORT=3000
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/mydb
+    command: npm run dev
+    build:
+      context: ./backend        # look inside backend folder
+      dockerfile: ../Dockerfile # optional: if your Dockerfile is in root
+    volumes:
+      - ./backend:/app          # mount local backend code into container /app
     ports:
       - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+
     depends_on:
       - db
     restart: unless-stopped
 
   frontend:
+    command: npm run dev -- --host
     build: ./frontend
     ports:
       - "5173:5173"
-    environment:
-      - VITE_API_URL=http://localhost:3000
     depends_on:
       - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
     restart: unless-stopped
 
   db:
