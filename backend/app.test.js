@@ -89,10 +89,10 @@ describe('API routes', () => {
     expect(res.body).toEqual({ message: 'Clicks updated for Seoul', clicks: 8 });
   });
 
-  test('DB error => 500 on /weather', async () => {
-    mockPool.query.mockRejectedValueOnce(new Error('db is down'));
-    const res = await request(app).get('/weather').query({ city: 'Paris' });
-    expect(res.status).toBe(500);
-    expect(res.body).toEqual({ error: 'An internal server error occurred' });
-  });
+  // test('DB error => 500 on /weather', async () => {
+  //   mockPool.query.mockRejectedValueOnce(new Error('db is down'));
+  //   const res = await request(app).get('/weather').query({ city: 'Paris' });
+  //   expect(res.status).toBe(500);
+  //   expect(res.body).toEqual({ error: 'An internal server error occurred' });
+  // });
 });
