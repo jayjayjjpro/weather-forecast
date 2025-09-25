@@ -1,10 +1,12 @@
 # 🌦️ Weather Tracking App
 
+Live view: https://frontend-one-tau-44.vercel.app/
+
 ## Overview
 
 The **Weather Tracking App** allows users to track current weather conditions of various cities worldwide. It provides an intuitive user interface that fetches live weather data — such as temperature, humidity, and weather conditions — using a third-party weather API. Weather information is displayed on an interactive global map, focusing on predefined or popular cities.
 
-The app is built using **Node.js** for the backend, **React.js** with **Vite** for the frontend, and **PostgreSQL** (via Supabase) for storing data about the most popular tracked cities. The app is cloud-hosted and supports automated deployments via **GitHub Actions**.
+The app is built using **Node.js** for the backend, **React.js** with **Vite** for the frontend, and **PostgreSQL** (via Neon) for storing data about the most popular tracked cities. The app is cloud-hosted and supports automated deployments via **GitHub Actions**.
 
 ---
 
@@ -23,16 +25,15 @@ The app is built using **Node.js** for the backend, **React.js** with **Vite** f
 
 ## 📁 Project Structure
 ```
-backend/ # Express.js API + Supabase DB
+backend/ # Express.js API + Postgres DB
 ├── app.js
 ├── db.js
 ├── package.json
 └── package-lock.json
 
 frontend/ # React + Vite client
-├── template/
-│ ├── public/
-│ └── src/
+│── public/
+│── src/
 ├── index.html
 ├── vite.config.js
 ├── package.json
@@ -61,6 +62,6 @@ We welcome contributions to the **Weather Tracking App**! Feel free to fork the 
 ## 👨‍💻 Project Created By
 
 - Kevin
--  Da Jie
+- Da Jie
 - Cuthbert
 - Pranav
